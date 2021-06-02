@@ -1,16 +1,18 @@
 package com.example.covidtracker.api
 
-import com.example.covidtracker.model.Superhero
-import com.example.covidtracker.model.superheroSearch
-import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.Path
+import com.example.covidtracker.util.constant.Companion.BASE_URL
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
-interface ReferenceSuperhero {
+object ReferenceSuperhero {
+    private val retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
 
-    @GET("search/{hero}")
-    suspend fun searchSuperhero(@Path("hero") hero: String): Response<superheroSearch>
-
-    @GET("{id}")
-    suspend fun getById(@Path("id") id:String): Response<Superhero>
+    val api: ReferenceSuperheroClient by lazy {
+        retrofit.create(ReferenceSuperheroClient::class.java)
+    }
 }
