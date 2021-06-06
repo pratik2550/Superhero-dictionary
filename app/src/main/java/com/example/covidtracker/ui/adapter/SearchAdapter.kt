@@ -29,6 +29,8 @@ class SearchAdapter(private val heroList: List<Superhero>, private val context: 
         holder.itemView.tvName.text = currItem.name
         Glide.with(context).load(currItem.image?.url).circleCrop().diskCacheStrategy(
             DiskCacheStrategy.ALL).into(holder.itemView.ivSearchSuperhero)
+        holder.itemView.tvRace.text = currItem.appearance?.race
+        holder.itemView.tvPublisher.text = currItem.biography?.publisher
     }
 
     override fun getItemCount(): Int {

@@ -46,19 +46,21 @@
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="1dp"-->
-<!--                    android:text="race"-->
-<!--                    android:textSize="18sp" />-->
+                <TextView
+                    android:id="@+id/tvRace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="1dp"
+                    android:text="race"
+                    android:textSize="18sp" />
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="1dp"-->
-<!--                    android:text="publisher"-->
-<!--                    android:textSize="18sp" />-->
+                <TextView
+                    android:id="@+id/tvPublisher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="1dp"
+                    android:text="publisher"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
