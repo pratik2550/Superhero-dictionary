@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.covidtracker.model.Superhero
 import com.example.covidtracker.repository.HeroReferenceRepository
@@ -22,12 +22,14 @@ class SearchFragment : Fragment() {
     private lateinit var viewModel: SuperHeroReferenceViewModel
     private val superHeroesList = arrayListOf<Superhero>()
 
+    val args: SearchFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var searchName = "iron"
+        val searchName = args.query
 
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 //        rvSearch.hasFixedSize();

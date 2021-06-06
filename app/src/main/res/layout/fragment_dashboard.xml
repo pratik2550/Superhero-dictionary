@@ -23,13 +23,16 @@
             android:textSize="28sp"
             android:textStyle="bold" />
 
-        <androidx.appcompat.widget.SearchView
+        <SearchView
             android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvSperhero"
+            android:queryHint="Search Here"
+            android:iconifiedByDefault="false"
             android:layout_margin="16dp"
             android:background="@drawable/search_view_background" />
+
     </RelativeLayout>
 
     <LinearLayout
