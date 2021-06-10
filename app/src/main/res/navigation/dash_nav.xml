@@ -24,5 +24,19 @@
         <argument
             android:name="query"
             app:argType="string" />
+        <action
+            android:id="@+id/action_searchFragment_to_heroDetailsFragment"
+            app:destination="@id/heroDetailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/heroDetailsFragment"
+        android:name="com.example.covidtracker.HeroDetailsFragment"
+        android:label="fragment_hero_details"
+        tools:layout="@layout/fragment_hero_details" >
+        <argument
+            android:name="heroId"
+            app:argType="string" />
     </fragment>
 </navigation>

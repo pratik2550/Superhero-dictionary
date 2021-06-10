@@ -19,22 +19,7 @@ class DashboardFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_dashboard, container, false)
-        view.tvSperhero.setOnClickListener { Navigation.findNavController(view).navigate(R.id.dashboardFragment_to_searchFragment) }
-
-        view.searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let {
-                    val action = DashboardFragmentDirections.dashboardFragmentToSearchFragment(query)
-                    Navigation.findNavController(view).navigate(action)
-                }
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                return true
-            }
-
-        })
+        view.tvSearch.setOnClickListener { Navigation.findNavController(view).navigate(R.id.dashboardFragment_to_searchFragment) }
 
         return view
     }

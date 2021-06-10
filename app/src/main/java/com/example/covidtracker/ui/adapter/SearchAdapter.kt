@@ -11,7 +11,7 @@ import com.example.covidtracker.R
 import com.example.covidtracker.model.Superhero
 import kotlinx.android.synthetic.main.raw_search_heroes.view.*
 
-class SearchAdapter(private val heroList: List<Superhero>, private val context: Context) : RecyclerView.Adapter<SearchAdapter.Holder>() {
+class SearchAdapter(private val heroList: List<Superhero>, private val listener: OnSearchedItemClickListener, private val context: Context) : RecyclerView.Adapter<SearchAdapter.Holder>() {
 
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -21,13 +21,18 @@ class SearchAdapter(private val heroList: List<Superhero>, private val context: 
                 LayoutInflater.from(parent.context)
                     .inflate(R.layout.raw_search_heroes, parent, false)
             )
+        viewHolder.itemView.setOnClickListener {
+            if (viewHolder.adapterPosition != RecyclerView.NO_POSITION) {
+                listener.onItemClick(viewHolder.adapterPosition)
+            }
+        }
         return viewHolder
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val currItem = heroList[position]
         holder.itemView.tvName.text = currItem.name
-        Glide.with(context).load(currItem.image?.url).circleCrop().diskCacheStrategy(
+        Glide.with(context).load(currItem.image?.url).placeholder(R.drawable.fire_flame).circleCrop().diskCacheStrategy(
             DiskCacheStrategy.ALL).into(holder.itemView.ivSearchSuperhero)
         holder.itemView.tvRace.text = currItem.appearance?.race
         holder.itemView.tvPublisher.text = currItem.biography?.publisher
